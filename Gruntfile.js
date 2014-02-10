@@ -34,6 +34,22 @@ module.exports = function(grunt) {
         src: '**',
         flatten: true,
         filter: 'isFile'
+      },
+      js: {
+        dest: 'dist/',
+        expand: true,
+        cwd: 'js/',
+        src: '**',
+        flatten: true,
+        filter: 'isFile'
+      },
+      build: {
+        dest: 'dist/',
+        expand: true,
+        cwd: 'build/',
+        src: '**',
+        flatten: true,
+        filter: 'isFile'
       }
     },
     qunit: {     

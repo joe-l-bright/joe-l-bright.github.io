@@ -1,3 +1,4 @@
 name: Joe Bright Blogin-it
 markdown: redcarpet
 pygments: true
+exclude: ['bower_components', 'node_modules']
