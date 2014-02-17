@@ -1,4 +1,9 @@
 module.exports = function(grunt) {
+  // Load grunt tasks automatically
+  require('load-grunt-tasks')(grunt);
+
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -97,6 +102,26 @@ module.exports = function(grunt) {
         }
       }
     },
+    htmlmin: {
+        site: {
+            options: {
+                collapseBooleanAttributes: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true,
+                removeCommentsFromCDATA: true,
+                removeEmptyAttributes: true,
+                removeOptionalTags: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true
+            },
+            files: [{
+                expand: true,
+                cwd: '_site',
+                src: '**/*.html',
+                dest: '_site'
+            }]
+        }
+    },
     exec: {
       build: {
         cmd: 'jekyll build'
@@ -107,16 +132,8 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('test',    ['clean', 'concat', 'uglify', 'copy', 'exec:build', 'connect', 'jshint', 'qunit']);
   grunt.registerTask('build',   ['clean', 'concat', 'uglify', 'copy', 'exec:build']);

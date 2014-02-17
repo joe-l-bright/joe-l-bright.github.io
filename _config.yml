@@ -1,4 +1,4 @@
-name: Joe Bright Blogin-it
+name: Fifty Shades of Moderate Blue
 markdown: redcarpet
 pygments: true
 exclude: ['bower_components', 'node_modules']
