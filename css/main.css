@@ -41,6 +41,10 @@ body {
   margin: auto;
 }
 
+.hidden {
+  display: none;
+}
+
 .scroll #top {
   display: block;
 }
@@ -49,8 +53,8 @@ body {
   line-height: 0.5;
   background: #dbe9f5;
   color: #428bca;
-  position: fixed;
-  bottom: 110px;
+  position: absolute;
+  top: -30px;
   right: 15px;
   padding: 8px;
   display: none;
@@ -72,11 +76,26 @@ body {
   float: left;
 }
 
-.header .extra {
+.options {
+  position: absolute;
+  border: 1px solid red;
+}
+
+.home, .more {
   font-weight: bold;
   text-decoration: none;
   margin: 10px;
   float: right;
+}
+
+.more {
+  color: #428bca;
+}
+
+.more:hover {
+  color: #2a6496;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .footer {

@@ -10,6 +10,10 @@ $(function () {
     e.preventDefault();
   });
 
+  $('.more').click(function(){
+  	$('.options').toggleClass('hidden');
+  });
+
   // scrolling links
   var added;
   doc.scroll(function(e){
